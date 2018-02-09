@@ -1,13 +1,14 @@
-import React from 'react'
-
-const Chat = ({chatHistory, friend, username, userId}) => {
-
-  return (
-    <div>
-      {chatHistory.map((c) => {
-        {return <div> {c} </div> }
-      })}
-    </div>
-  )
-}
-export default Chat
+// import React from 'react'
+//
+// class Chat extends React.Component {
+//   render() {
+//     console.log(this.props)
+//     return (
+//       <div>
+//         hi
+//       </div>
+//     )
+//   }
+// }
+//
+// export default Chat

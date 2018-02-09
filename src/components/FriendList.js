@@ -3,15 +3,16 @@ import Friend from './Friend'
 
 
 
-const FriendList = ({username, userId, friends}) => {
+const FriendList = ({username, friends, userId}) => {
+  console.log(friends)
   return(
     <div>
-      <ul>
         {friends.map((b) => {
-          return <Friend username={username} userId={userId} friend={b} username={b.username} key={b.id} />
+          return <div><Friend friend={b} key={b.userId} /></div>
         })}
-      </ul>
-    </div>
+
+</div>
+
   )
 }
 
