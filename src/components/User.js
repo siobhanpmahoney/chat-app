@@ -17,11 +17,9 @@ class User extends React.Component {
 
     return (
       <div>
-            <div>
-            <div className="friendList">
-              <FriendList username = {this.state.username} userId={this.props.id} friends={this.state.friends}/>
-            </div>
-          </div>
+        <div className="friendList">
+          <FriendList username={this.state.username} userId={this.props.id} friends={this.state.friends}/>
+        </div>
       </div>
   )
   }

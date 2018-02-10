@@ -5,12 +5,15 @@ import UserPage from './components/UserPage'
 import LoginForm from './components/LoginForm'
 
 class App extends Component {
-  state = {user: {}}
+  constructor(props){
+    super(props)
+    this.state = {user: {}, friends: [], chats: []}
+  }
 
   render() {
     return (
       <div className="App">
-        <LoginForm onSubmit={this.findOrCreateUser}/>
+        <LoginForm onSubmit={this.findOrCreateUser} />
         <UserPage user={this.state.user} friends={this.state.friends} chats={this.state.chats} />
       </div>
     );
@@ -33,16 +36,15 @@ class App extends Component {
       return response.json()
     })
     .then(json => {
-      console.log("here");
-      console.log(json);
-      debugger
       this.addResponseToState(json)
     })
   }
 
   addResponseToState = (json) => {
     this.setState({
-      user: json
+      user: json.user,
+      friends: json.friends,
+      chats: json.chats
     })
   }
 }

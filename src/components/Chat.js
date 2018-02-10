@@ -1,12 +1,10 @@
 import React from 'react'
 
-const Chat = ({chatHistory, friend, username, userId}) => {
-
+const Chat = (props) => {
+  
   return (
     <div>
-      {chatHistory.map((c) => {
-        {return <div> {c} </div> }
-      })}
+      <h4>{props.chat.title}</h4>
     </div>
   )
 }
