@@ -6,17 +6,8 @@ class UserPage extends React.Component {
     super(props)
 
     this.state = {
-      friends: [],
-      myFriends: []
+      allUsers: [],
     }
-  }
-
-  componentDidMount(){
-    // if (this.props.user) {
-    //   fetch('http://localhost:3000/api/v1/friends')
-    //   .then(response => response.json())
-    //   .then(json => console.log)
-    // }
   }
 
   render() {
