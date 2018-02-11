@@ -3,13 +3,13 @@ import Chat from './Chat'
 
 
 
-const ChatList = (props) => {
-  
+const ChatList = ({chats, friends, user}) => {
+  console.log({chats})
   return(
-    <div>
+    <div className="chatList">
       <ul>
-        {props.chats.map((chat) => {
-          return <Chat chat={chat} key={chat.id} />
+        {chats.map((chat) => {
+          return <Chat chat={chat} key={chat.chat_id} user={user} friends={friends} chats={chats}/>
         })}
       </ul>
     </div>

@@ -1,10 +1,12 @@
 import React from 'react'
 
-const Chat = (props) => {
-  
+const Chat = ({chat}) => {
+
   return (
-    <div>
-      <h4>{props.chat.title}</h4>
+    <div className = "chatWindow">
+       {chat.messages.map((m) => {
+         return <div>{m.username} ({m.sent}): {m.content}</div>
+       })}
     </div>
   )
 }

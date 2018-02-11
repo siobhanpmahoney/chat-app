@@ -1,24 +1,37 @@
-import React from "react";
-import FriendsContainer from './FriendsContainer';
-import ChatsContainer from './ChatsContainer';
+import React from 'react';
+import FriendList from './FriendList'
+import ChatsContainer from './ChatsContainer'
 
 class UserPage extends React.Component {
-
-  constructor(props){
+  constructor(props) {
     super(props)
 
     this.state = {
-      allUsers: []
+      logged_in: false
     }
   }
 
+  //chat fetch
+
+  //friend fetch
+
+
+
+
   render() {
+    console.log(this.props)
     return (
       <div>
-        <FriendsContainer friends={this.props.friends} />
-        <ChatsContainer chats={this.props.chats} />
+            <div>
+            <div className="friendContainer">
+
+               <FriendList user={this.props.user} friends={this.props.friends} chats={this.props.chats} />
+               <ChatsContainer user={this.props.user} friends={this.props.friends} chats={this.props.chats}/>
+
+            </div>
+          </div>
       </div>
-    )
+  )
   }
 }
 

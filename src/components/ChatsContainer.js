@@ -3,12 +3,12 @@ import ChatList from './ChatList'
 
 class ChatsContainer extends React.Component {
 
-  
-  render() {
 
+  render() {
+    console.log(this.props.chats)
     return (
       <div>
-        <ChatList chats={this.props.chats} />
+        <ChatList user={this.props.user} friends={this.props.friends} chats={this.props.chats} />
       </div>
     )
   }

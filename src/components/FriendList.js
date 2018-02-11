@@ -3,13 +3,13 @@ import Friend from './Friend'
 
 
 
-const FriendList = (props) => {
-  
+const FriendList = ({user, friends, chats}) => {
+
   return(
-    <div>
+    <div className="friendList">
       <ul>
-        {props.friends.map((b) => {
-          return <Friend friend={b} key={b.id} />
+        {friends.map((b) => {
+          return <Friend friend={b} key={b.user_id}  />
         })}
       </ul>
     </div>
