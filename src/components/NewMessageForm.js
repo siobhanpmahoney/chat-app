@@ -1,9 +1,9 @@
 import React from 'react';
 
-const NewMessageForm = () => {
+const NewMessageForm = ({chat, chats, friends, user, handleNewMessageListen}) => {
   return (
     <div>
-      <input type="text" />
+      <input type="text" onChange={user.handleNewMessageListen}/>
     </div>
   )
 }
