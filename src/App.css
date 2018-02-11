@@ -26,3 +26,34 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.user-page {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+}
+
+.friends-container {
+  grid-column: 1 / 1;
+  grid-row: 1;
+  float: left;
+}
+
+.chats-container {
+  grid-column: 2 / 4;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+}
+
+.active-chat {
+  grid-column: 1 / 2;
+  display: grid;
+}
+
+.chats-list {
+  grid-column: 2 / 3;
+  display: grid;
+}

@@ -14,7 +14,7 @@ class UserPage extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="user-page">
         <FriendsContainer friends={this.props.friends} />
         <ChatsContainer chats={this.props.chats} />
       </div>

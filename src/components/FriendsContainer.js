@@ -5,7 +5,7 @@ class FriendsContainer extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="friends-container">
         <FriendList friends={this.props.friends}/>
       </div>
     )
