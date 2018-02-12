@@ -26,27 +26,62 @@
 }
 
 .friendList {
-  display:float;
+  display:flex;
+  flex-direction: column;
+  width: 15%;
   float: left;
-  width: 30%;
+}
+
+.chatsContainer {
+
 }
 
 .chatList {
-  float: right;
-  width: 60%;
+  display:flex;
+    flex-direction: column;
+    width: 20%;
+    float: right;
 }
 
-.chatWindow {
-  font-family: 'source sans pro';
-  overflow: scroll;
-  font-size: 10px;
+.chatListItem {
+  font-size: 12px;
+  font-family: "droid sans";
   border: groove;
-  display:flex;
-  flex-direction: column;
-  width: 50%;
-  float: right;
   background-color: white;
-  height: 175px;
+  max-height: 175px;
+  margin: 0.25em;
+  padding: 0.25em;
+  overflow-y: auto;
+}
+
+.openChatContainer {
+  border: groove;
+display:flex;
+flex-direction: column;
+width: 30%;
+float: left;
+background-color: white;
+margin: 0.5em;
+padding: 0.25em;
+
+}
+
+.openChatWindow {
+  flex-direction: column;
+  font-size: 13px;
+  font-family: "droid sans";
+  border: groove;
+  background-color: white;
+  max-height: 200px;
   margin: 0.5em;
   padding: 0.25em;
+  overflow-y: auto;
+}
+
+.openChatWindowHistory {
+
+}
+
+.openChatWindowForm {
+
 }

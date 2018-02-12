@@ -136,16 +136,21 @@ class UserPage extends React.Component {
   render() {
     return (
       <div>
+      <div className="friendList">
         <FriendList user={this.state.user} friends={this.state.friends} chats={this.state.chats} />
+        </div>
 
+        <div className="chatsContainer">
       <ChatsContainer user={this.state.user}
         friends={this.state.friends}
         chats={this.state.chats}
         chatCardClickListener={this.chatCardClickListener}
         openChats = {this.state.openChats}
         handleNewMessageSend = {this.handleNewMessageSend} />
+    </div>
 
       </div>
+
     )
   }
 
