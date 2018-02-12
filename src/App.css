@@ -27,33 +27,63 @@
   to { transform: rotate(360deg); }
 }
 
-.user-page {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 10px;
-  grid-auto-rows: minmax(100px, auto);
-}
-
-.friends-container {
-  grid-column: 1 / 1;
-  grid-row: 1;
+.friendList {
+  display:flex;
+  flex-direction: column;
+  width: 15%;
   float: left;
 }
 
-.chats-container {
-  grid-column: 2 / 4;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 10px;
-  grid-auto-rows: minmax(100px, auto);
+.chatsContainer {
+
 }
 
-.active-chat {
-  grid-column: 1 / 2;
-  display: grid;
+.chatList {
+  display:flex;
+    flex-direction: column;
+    width: 20%;
+    float: right;
 }
 
-.chats-list {
-  grid-column: 2 / 3;
-  display: grid;
+.chatListItem {
+  font-size: 12px;
+  font-family: "droid sans";
+  border: groove;
+  background-color: white;
+  max-height: 175px;
+  margin: 0.25em;
+  padding: 0.25em;
+  overflow-y: auto;
+}
+
+.openChatContainer {
+  border: groove;
+display:flex;
+flex-direction: column;
+width: 30%;
+float: left;
+background-color: white;
+margin: 0.5em;
+padding: 0.25em;
+
+}
+
+.openChatWindow {
+  flex-direction: column;
+  font-size: 13px;
+  font-family: "droid sans";
+  border: groove;
+  background-color: white;
+  max-height: 200px;
+  margin: 0.5em;
+  padding: 0.25em;
+  overflow-y: auto;
+}
+
+.openChatWindowHistory {
+
+}
+
+.openChatWindowForm {
+
 }

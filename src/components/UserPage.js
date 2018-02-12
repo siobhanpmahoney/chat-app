@@ -13,11 +13,11 @@ class UserPage extends React.Component {
   }
 
   render() {
-    
+
     return (
       <div className="user-page">
         <FriendsContainer user={this.props.user} chats={this.props.chats} friends={this.props.friends} />
-        <ChatsContainer user={this.props.user} chats={this.props.chats} friends={this.props.friends} />
+        <ChatsContainer user={this.props.user} chats={this.props.chats} friends={this.props.friends} addResponseToState={this.props.addResponseToState} />
       </div>
     )
   }

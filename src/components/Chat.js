@@ -1,4 +1,5 @@
 import React from 'react'
+import ActiveChat from './ActiveChat.js'
 
 const Chat = (props) => {
   return (
@@ -6,6 +7,7 @@ const Chat = (props) => {
       <h4 onClick={props.onClick} data-id={props.chat.id}>
         {props.chat.title}
       </h4>
+      <ActiveChat user={props.user} chat={props.chat} messages={props.activeChatMessages}  handleNewMessageSubmit={props.handleNewMessageSubmit} />
     </div>
   )
 }

@@ -12,10 +12,10 @@ const ActiveChat = (props) => {
   }
   return (
     <div className="active-chat">
-      <div>
+
         {chatInfo}
-        <NewMessageForm />
-      </div>
+        <NewMessageForm chat={props.chat} messageDraftListener={props.messageDraftListener} handleNewMessageSubmit={props.handleNewMessageSubmit} activeChatId={props.activeChatId}/>
+
 
     </div>
   )
