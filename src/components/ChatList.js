@@ -9,7 +9,7 @@ const ChatList = (props) => {
     <div className="chats-list">
       <ul>
         {props.chats.map((chat) => {
-          return <Chat chat={chat} key={chat.id} />
+          return <Chat chat={chat} key={chat.id} onClick={props.onClick} />
         })}
       </ul>
     </div>
