@@ -83,6 +83,7 @@ class UserPage extends React.Component {
   }
 
   chatCardClickListener = (chat) => {
+    debugger
     let currentOpenChats = this.state.openChats.slice()
     this.setState({
       openChats: [...currentOpenChats, chat]
@@ -90,12 +91,42 @@ class UserPage extends React.Component {
   }
 
 
-  handleNewMessageSend = (user, chat, message) => {
-
-    console.log("we made it")
-
-    console.log(chat)
+  handleNewMessageSend = (event, user, chat, message) => {
+    event.preventDefault()
+    debugger
     console.log(message)
+    console.log(this.state.user.username)
+    let newMessage = {message_id: 100, content: message, user_id: this.state.user.id, username: this.state.user.username, sent: Date.now()}
+    let newChats = this.state.chats.map((c) => {
+      if (c.chat_id === chat.chat_id) {
+        const newMessages = c.messages.slice();
+        newMessages.push(newMessage);
+        return {
+          ...c,
+          messages: newMessages,
+        }
+      } else {
+        return c;
+      }
+    })
+
+    this.setState({
+      chats: newChats
+    });
+
+    // let i = this.state.chats.indexOf(chat)
+    // console.log(i)
+
+    // // console.log(`newMessage: ${newMessage}`)
+    // let currentMessages = this.state.chats[i].messages
+    // console.log(`currentMessages: ${currentMessages}`)
+    // let newChats = this.state.chats.slice();
+    // console.log(this.state.chats.indexOf(chat))
+    //   console.log(`newChats: ${newChats}`)
+    // newChats[i] = [...currentMessages, newMessage]
+    // this.setState({
+    //   chats: newChats
+    // })
   }
 
 

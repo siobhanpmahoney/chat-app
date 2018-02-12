@@ -10,7 +10,7 @@ const ChatList = ({chats, friends, user, chatCardClickListener}) => {
     <div className="chatList">
 
         {chats.map((chat) => {
-          return <div onClick={()=>{chatCardClickListener(chat)}} > <Chat chat={chat} key={chat.chat_id} user={user} friends={friends} chatCardClickListener={chatCardClickListener} /> </div>
+          return <div key={chat.chat_id}  onClick={()=>{chatCardClickListener(chat)}} > <Chat chat={chat} user={user} friends={friends} chatCardClickListener={chatCardClickListener} /> </div>
 
       })}
 

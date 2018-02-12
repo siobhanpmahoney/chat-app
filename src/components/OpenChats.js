@@ -7,12 +7,13 @@ const OpenChats = ({chats, friends, user, openChats, handleNewMessageSend}) => {
   return(
     <div>
     {openChats.map((chat) => {
-      return <div key={chat.chat_id}>
-
+      return <div key={chat.chat_id} >
       <Chat chat={chat} user={user} friends={friends} />
 
-      <NewMessageForm user={user} chat={chat}  handleNewMessageSend={handleNewMessageSend}/>
-    </div>
+
+
+      <NewMessageForm user={user} chat={chat}  handleNewMessageSend={handleNewMessageSend} key={chat.chat_id} />
+</div>
     })}
     </div>
   )

@@ -16,15 +16,17 @@ class NewMessageForm extends React.Component {
     })
   }
 
-  messageSend = () => {
-
+  messageSend = (event) => {
+    event.preventDefault()
     let user = this.props.user
     let chat = this.props.chat
     let message = this.state.messageText
-    this.props.handleNewMessageSend(user, chat, message)
+    this.props.handleNewMessageSend(event, user, chat, message)
   }
 
   render() {
+
+  
     return (
       <div className="newMessageForm">
         <input type="text" onChange={this.messageDraftListener}/>
