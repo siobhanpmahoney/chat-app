@@ -3,17 +3,15 @@ import Chat from './Chat'
 
 
 
-const ChatList = ({chats, friends, user, handleNewMessageListen, usernames}) => {
-  console.log({chats})
+const ChatList = ({chats, friends, user}) => {
+
+
   return(
     <div className="chatList">
-      <ul>
-        {chats.map((chat) => {
-          return <li>{()=> {usernames(chat)}}</li>
 
-        <Chat chat={chat} key={chat.chat_id} user={user} friends={friends} handleNewMessageListen = {handleNewMessageListen}/>
+        {chats.map((chat) => {
+          return<div><Chat chat={chat} key={chat.chat_id} user={user} friends={friends} /></div>
         })}
-      </ul>
     </div>
   )
 }

@@ -82,16 +82,13 @@ class UserPage extends React.Component {
     }
 
 
-  handleNewMessageListen = (event) => {
-    console.log(event.target.value)
-  }
 
   render() {
     return (
       <div>
-        <FriendList user={this.state.user} friends={this.state.friends} chats={this.state.chats} handleNewMessageListen={this.handleNewMessageListen} />
+        <FriendList user={this.state.user} friends={this.state.friends} chats={this.state.chats} />
 
-      <ChatsContainer user={this.state.user} friends={this.state.friends} chats={this.state.chats} handleNewMessageListen = {this.handleNewMessageListen} />
+      <ChatsContainer user={this.state.user} friends={this.state.friends} chats={this.state.chats}  />
 
       </div>
     )
