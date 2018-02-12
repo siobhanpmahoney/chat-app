@@ -11,7 +11,6 @@ class ChatsContainer extends React.Component {
   }
 
   render() {
-
     return (
       <div className="chats-container">
         <ActiveChat messages={this.state.activeChatMessages} />

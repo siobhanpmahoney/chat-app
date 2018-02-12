@@ -4,7 +4,6 @@ import Chat from './Chat'
 
 
 const ChatList = (props) => {
-
   return(
     <div className="chats-list">
       <ul>

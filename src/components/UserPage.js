@@ -13,6 +13,7 @@ class UserPage extends React.Component {
   }
 
   render() {
+    debugger
     return (
       <div className="user-page">
         <FriendsContainer friends={this.props.friends} />
