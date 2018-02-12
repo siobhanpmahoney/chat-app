@@ -1,4 +1,6 @@
 import React from 'react';
+import NewMessageForm from './NewMessageForm'
+
 
 const ActiveChat = (props) => {
   let chatInfo = null
@@ -10,7 +12,11 @@ const ActiveChat = (props) => {
   }
   return (
     <div className="active-chat">
-      {chatInfo}
+      <div>
+        {chatInfo}
+        <NewMessageForm />
+      </div>
+
     </div>
   )
 }
