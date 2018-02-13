@@ -46,8 +46,9 @@ class ChatsContainer extends React.Component {
 
     let newMessage = {content: message, chat_id: chat.id, user_id: this.props.user.id, chat: chat}
 
-
-    fetch('http://localhost:3000/api/v1/chats/' + this.state.chatId +'/messages',
+    const url = 'http://localhost:3000/api/v1/chats/' + this.state.chatId +'/messages';
+    console.log(url);
+    fetch(url,
     {
       method: 'post',
       headers:{
@@ -55,22 +56,25 @@ class ChatsContainer extends React.Component {
         'Accepts': 'application/json'
     },
       body: JSON.stringify({
-        messages: {content: message, chat_id: chat.id, user_id: this.props.user.id, chat: chat}
+        messages: {
+          content: message,
+          chat_id: chat.id,
+          user_id: this.props.user.id,
+          chat: chat
+        }
       })
     })
     .then((response) => response.json())
     .then(json => {
-      
       this.addResponseToState(json)
     })
   }
 
   addResponseToState = (json) => {
-    console.log(json.content)
-    debugger
-    let currentMessageState = this.state.activeChatMessages
+    console.log(json)
+    let currentMessageState = this.state.activeChatMessages.slice()
     this.setState({
-      activeChatMessages: [...currentMessageState, json.contet]
+      activeChatMessages: [...currentMessageState, json[json.length-1]]
     })
   }
 

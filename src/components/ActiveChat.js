@@ -13,11 +13,12 @@ class ActiveChat extends React.Component {
   }
 
   renderChatHTML = () => {
+
     return(
       <div>
         {this.props.messages.map((m) => {
 
-          return <div>{this.props.user.username}: {m.content}</div>
+          return <div key={m.id} >{this.props.user.username}: {m.content}</div>
         })}
           <NewMessageForm chat={this.props.chat} messageDraftListener={this.props.messageDraftListener} handleNewMessageSubmit={this.props.handleNewMessageSubmit} activeChatId={this.props.activeChatId}/>
       </div>
