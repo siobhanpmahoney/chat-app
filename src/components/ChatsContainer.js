@@ -42,7 +42,7 @@ class ChatsContainer extends React.Component {
   }
 
   handleChatClose = () => {
-    console.log(updateActiveChat(null))
+    console.log("nothing")
   }
 
 
