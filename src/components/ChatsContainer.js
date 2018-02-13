@@ -7,32 +7,35 @@ class ChatsContainer extends React.Component {
     super(props)
     this.state = {
       activeChatMessages: null,
-      chatId: null
+      activeChat: null,
+      toggleActiveChat: false
     }
   }
 
   render() {
     return (
-      <div className="chats-container">
+      <div className="chatsContainer">
+
+        <div className="activeChatContainer">
+          <ActiveChat user={this.props.user} chat={this.state.activeChat} messages={this.state.activeChatMessages}  handleNewMessageSubmit={this.handleNewMessageSubmit} handleCloseChat={this.handleCloseChat} />
+          </div>
 
         <ChatList chats={this.props.chats} user={this.props.user} onClick={this.updateActiveChat}  activeChatMessages={this.state.activeChatMessages} activeChatId={this.state.chatId} messageDraftListener={this.messageDraftListener} handleNewMessageSubmit={this.handleNewMessageSubmit} />
       </div>
     )
   }
 
-  updateActiveChat = (e) => {
-    let id = e.target.dataset.id
-
-    this.fetchActiveChatInfo(id)
+  updateActiveChat = (selectChat) => {
+    this.fetchActiveChatInfo(selectChat)
   }
 
-  fetchActiveChatInfo = (id) => {
-    fetch(`http://localhost:3000/api/v1/chats/${id}`)
+  fetchActiveChatInfo = (chat) => {
+    fetch(`http://localhost:3000/api/v1/chats/${chat.id}`)
     .then(response => response.json())
     .then(json => {
       this.setState({
         activeChatMessages: json.messages,
-        chatId: id
+        activeChat: chat
       })
     })
   }
@@ -46,7 +49,7 @@ class ChatsContainer extends React.Component {
 
     let newMessage = {content: message, chat_id: chat.id, user_id: this.props.user.id, chat: chat}
 
-    const url = 'http://localhost:3000/api/v1/chats/' + this.state.chatId +'/messages';
+    const url = 'http://localhost:3000/api/v1/chats/' + this.state.activeChat.id +'/messages';
     console.log(url);
     fetch(url,
     {
@@ -71,12 +74,20 @@ class ChatsContainer extends React.Component {
   }
 
   addResponseToState = (json) => {
-    console.log(json)
+
     let currentMessageState = this.state.activeChatMessages.slice()
     this.setState({
       activeChatMessages: [...currentMessageState, json[json.length-1]]
     })
   }
+
+  toggleActiveChat = (chat) = {
+    let status = !this.state.toggleActiveChat
+    this.setState({
+      toggleActiveChat: status
+    }),
+  }
+
 
 
 }

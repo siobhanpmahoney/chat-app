@@ -8,7 +8,7 @@ class Friend extends React.Component {
 
   render() {
     return(
-      <div className="friend">
+      <div>
         <h4>{this.props.friend.username}</h4>
       </div>
     )

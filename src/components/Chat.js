@@ -2,12 +2,17 @@ import React from 'react'
 import ActiveChat from './ActiveChat.js'
 
 const Chat = (props) => {
+  console.log(props)
   return (
-    <div className="chat">
-      <h4 onClick={props.onClick} data-id={props.chat.id}>
+
+    <div>
+
+      <div className="chat">
+      <h4 onClick={()=>props.onClick(props.chat)} data-id={props.chat.id}>
         {props.chat.title}
       </h4>
-      <ActiveChat user={props.user} chat={props.chat} messages={props.activeChatMessages}  handleNewMessageSubmit={props.handleNewMessageSubmit} />
+    </div>
+
     </div>
   )
 }
