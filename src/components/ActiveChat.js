@@ -1,5 +1,6 @@
 import React from 'react';
 import NewMessageForm from './NewMessageForm'
+import { ActionCable } from 'react-actioncable-provider'
 
 class ActiveChat extends React.Component {
   constructor(props) {
@@ -13,7 +14,6 @@ class ActiveChat extends React.Component {
   }
 
   renderChatHTML = () => {
-
     return(
       <div>
         {this.props.messages.map((m) => {
@@ -26,8 +26,13 @@ class ActiveChat extends React.Component {
   }
 
   render() {
+    debugger
     return (
       <div>
+        <ActionCable channel={{channel: 'FeedChannel'}} onReceived={ () => {
+            console.log('callin back yungin\' hoo hoo')
+          }
+        } />
         {this.props.messages ? this.renderChatHTML() : this.renderNoChats()}
       </div>)
       }
