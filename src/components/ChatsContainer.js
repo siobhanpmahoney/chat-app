@@ -37,6 +37,10 @@ class ChatsContainer extends React.Component {
     })
   }
 
+  handleChatClose = () => {
+    
+  }
+
 
 
 
