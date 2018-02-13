@@ -6,15 +6,16 @@ class ChatsContainer extends React.Component {
   constructor(props){
     super(props)
     this.state = {
-      activeChatMessages: null
+      activeChatMessages: null,
+      chatId: null
     }
   }
 
   render() {
     return (
       <div className="chats-container">
-        <ActiveChat messages={this.state.activeChatMessages} />
-        <ChatList chats={this.props.chats} onClick={this.updateActiveChat}/>
+
+        <ChatList chats={this.props.chats} user={this.props.user} onClick={this.updateActiveChat}  activeChatMessages={this.state.activeChatMessages} activeChatId={this.state.chatId} messageDraftListener={this.messageDraftListener} handleNewMessageSubmit={this.handleNewMessageSubmit} />
       </div>
     )
   }
@@ -30,9 +31,53 @@ class ChatsContainer extends React.Component {
     .then(response => response.json())
     .then(json => {
       this.setState({
-        activeChatMessages: json.messages
+        activeChatMessages: json.messages,
+        chatId: id
       })
     })
   }
+
+
+
+
+  handleNewMessageSubmit = (event, chat, message) => {
+    event.preventDefault()
+
+
+    let newMessage = {content: message, chat_id: chat.id, user_id: this.props.user.id, chat: chat}
+
+    const url = 'http://localhost:3000/api/v1/chats/' + this.state.chatId +'/messages';
+    console.log(url);
+    fetch(url,
+    {
+      method: 'post',
+      headers:{
+        'Content-Type': 'application/json',
+        'Accepts': 'application/json'
+    },
+      body: JSON.stringify({
+        messages: {
+          content: message,
+          chat_id: chat.id,
+          user_id: this.props.user.id,
+          chat: chat
+        }
+      })
+    })
+    .then((response) => response.json())
+    .then(json => {
+      this.addResponseToState(json)
+    })
+  }
+
+  addResponseToState = (json) => {
+    console.log(json)
+    let currentMessageState = this.state.activeChatMessages.slice()
+    this.setState({
+      activeChatMessages: [...currentMessageState, json[json.length-1]]
+    })
+  }
+
+
 }
 export default ChatsContainer

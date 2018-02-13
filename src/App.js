@@ -13,7 +13,7 @@ class App extends Component {
     return (
       <div className="App">
         <LoginForm onSubmit={this.findOrCreateUser} />
-        <UserPage user={this.state.user} friends={this.state.friends} chats={this.state.chats} />
+        <UserPage user={this.state.user} friends={this.state.friends} chats={this.state.chats} addResponseToState={this.addResponseToState}/>
       </div>
     );
   }
@@ -46,6 +46,8 @@ class App extends Component {
       chats: json.chats
     })
   }
+
+
 }
 
 export default App;
