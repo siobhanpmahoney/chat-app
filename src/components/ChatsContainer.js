@@ -43,9 +43,11 @@ class ChatsContainer extends React.Component {
   handleNewMessageSubmit = (event, chat, message) => {
     event.preventDefault()
 
-    let newMessage = {content: message, chat_id: chat.id, user_id: this.props.user.id}
 
-    fetch('http://localhost:3000/api/v1/chats/' + this.state.chatId,
+    let newMessage = {content: message, chat_id: chat.id, user_id: this.props.user.id, chat: chat}
+
+
+    fetch('http://localhost:3000/api/v1/chats/' + this.state.chatId +'/messages',
     {
       method: 'post',
       headers:{
@@ -53,22 +55,22 @@ class ChatsContainer extends React.Component {
         'Accepts': 'application/json'
     },
       body: JSON.stringify({
-        messages: {content: message, chat_id: chat.id, user_id: this.props.user.id}
+        messages: {content: message, chat_id: chat.id, user_id: this.props.user.id, chat: chat}
       })
     })
-    .then(function(response) {
-      return response.json()
-    })
+    .then((response) => response.json())
     .then(json => {
+      
       this.addResponseToState(json)
     })
   }
 
   addResponseToState = (json) => {
-
-    let currentMessageState = this.state.activeMessages
+    console.log(json.content)
+    debugger
+    let currentMessageState = this.state.activeChatMessages
     this.setState({
-      activeMessages: [...currentMessageState, json]
+      activeChatMessages: [...currentMessageState, json.contet]
     })
   }
 

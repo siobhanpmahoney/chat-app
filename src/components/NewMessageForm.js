@@ -27,7 +27,7 @@ class NewMessageForm extends React.Component {
 
 
   render(){
-    debugger
+    
     return(
       <div>
         <input type="text" onChange={this.messageDraftListener}/>

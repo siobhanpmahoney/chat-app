@@ -1,25 +1,60 @@
 import React from 'react';
 import NewMessageForm from './NewMessageForm'
 
-
-const ActiveChat = (props) => {
-  let chatInfo = null
-
-  if(props.messages === null){
-    chatInfo = <h1>No current chat selected</h1>
-  } else {
-    chatInfo = props.messages.map(m => <p key={m.id}>{m.content}</p>)
+class ActiveChat extends React.Component {
+  constructor(props) {
+    super(props)
   }
-  return (
-    <div className="active-chat">
 
-        {chatInfo}
-        <NewMessageForm chat={props.chat} messageDraftListener={props.messageDraftListener} handleNewMessageSubmit={props.handleNewMessageSubmit} activeChatId={props.activeChatId}/>
+  renderNoChats = () => {
+    return(
+      <div><h1>No current chat selected</h1></div>
+    )
+  }
+
+  renderChatHTML = () => {
+    return(
+      <div>
+        {this.props.messages.map((m) => {
+
+          return <div>{this.props.user.username}: {m.content}</div>
+        })}
+          <NewMessageForm chat={this.props.chat} messageDraftListener={this.props.messageDraftListener} handleNewMessageSubmit={this.props.handleNewMessageSubmit} activeChatId={this.props.activeChatId}/>
+      </div>
+    )
+  }
+
+  render() {
+    return (
+      <div>
+        {this.props.messages ? this.renderChatHTML() : this.renderNoChats()}
+      </div>)
+      }
 
 
-    </div>
-  )
 }
+
+// const ActiveChat = ({chat, users, messages, handleNewMessageSubmit}) => {
+//
+//   let chatInfo = null
+//
+//   if(props.messages === null){
+//     chatInfo = <h1>No current chat selected</h1>
+//   } else {
+//     chatInfo = props.messages.map((m) => <p id={m.id}>{m.content}</p>)
+//   }
+//   {console.log(chatInfo)}
+//   return (
+//
+//     <div className="active-chat">
+//
+//         {chatInfo}
+//         <NewMessageForm chat={props.chat} messageDraftListener={props.messageDraftListener} handleNewMessageSubmit={props.handleNewMessageSubmit} activeChatId={props.activeChatId}/>
+//
+//
+//     </div>
+//   )
+// }
 
 
 export default ActiveChat
