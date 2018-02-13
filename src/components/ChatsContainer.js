@@ -7,23 +7,11 @@ class ChatsContainer extends React.Component {
     super(props)
     this.state = {
       activeChatMessages: null,
-      activeChat: null
+      activeChat: []
     }
   }
 
-  render() {
-    return (
-      <div className="chatsContainer">
 
-        <div className="activeChatContainer">
-
-          <ActiveChat user={this.props.user} chat={this.state.activeChat} messages={this.state.activeChatMessages}  handleNewMessageSubmit={this.handleNewMessageSubmit} handleCloseChat={this.handleCloseChat}/>
-          </div>
-
-        <ChatList chats={this.props.chats} user={this.props.user} onClick={this.updateActiveChat}  activeChatMessages={this.state.activeChatMessages} activeChatId={this.state.chatId} messageDraftListener={this.messageDraftListener} handleNewMessageSubmit={this.handleNewMessageSubmit} />
-      </div>
-    )
-  }
 
   updateActiveChat = (selectChat) => {
     this.fetchActiveChatInfo(selectChat)
@@ -40,12 +28,6 @@ class ChatsContainer extends React.Component {
     })
 
   }
-
-  handleChatClose = () => {
-    console.log("nothing")
-  }
-
-
 
 
   handleNewMessageSubmit = (event, chat, message) => {
@@ -79,7 +61,6 @@ class ChatsContainer extends React.Component {
   }
 
   addResponseToState = (json) => {
-
     let currentMessageState = this.state.activeChatMessages.slice()
     this.setState({
       activeChatMessages: [...currentMessageState, json[json.length-1]]
@@ -87,14 +68,34 @@ class ChatsContainer extends React.Component {
   }
 
   handleCloseChat = (chat) => {
-    let setChatToNull = this.state.ActiveChat
-    setChatToNull = null
-    if (this.state.activeChat.id == chat.id) {
-      this.setState({
-        activeChat: setChatToNull
-      })
-    }
 
+    let setChatState = []
+    let messageState = this.state.activeChatMessages
+
+    messageState.splice(0)
+
+      this.setState({
+        activeChatMessages: messageState,
+        activeChat: setChatState
+      })
+
+  }
+
+  render() {
+    console.log(this.state.activeChat.length)
+    return (
+      <div className="chatsContainer">
+
+
+        <div className="activeChatContainer">
+
+          <ActiveChat user={this.props.user} chat={this.state.activeChat} messages={this.state.activeChatMessages}  handleNewMessageSubmit={this.handleNewMessageSubmit} handleCloseChat={this.handleCloseChat}/>
+          </div>
+
+
+        <ChatList chats={this.props.chats} user={this.props.user} onClick={this.updateActiveChat}  activeChatMessages={this.state.activeChatMessages} activeChatId={this.state.chatId} messageDraftListener={this.messageDraftListener} handleNewMessageSubmit={this.handleNewMessageSubmit} />
+      </div>
+    )
   }
 
 
