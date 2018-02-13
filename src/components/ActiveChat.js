@@ -24,16 +24,13 @@ class ActiveChat extends React.Component {
     })
   }
 
-
-
   renderChatHTML = () => {
     return(
       <div className="activeChatWindow">
-
         {this.props.messages.map((m) => {
-
-          return <div key={m.id}><b>{this.props.user.username}</b>: {m.content}</div>
-        })}
+          return(<div key={m.id}><b>{m.user_id}</b>: {m.content}</div>)
+        })
+      }
           <NewMessageForm chat={this.props.chat} messageDraftListener={this.props.messageDraftListener} handleNewMessageSubmit={this.props.handleNewMessageSubmit} activeChatId={this.props.activeChatId}/>
       </div>
     )
@@ -42,11 +39,11 @@ class ActiveChat extends React.Component {
 
 
   render() {
-    debugger
+
     return (
       <div>
         <ActionCable channel={{channel: 'FeedChannel'}} onReceived={ () => {
-            console.log('callin back yungin\' hoo hoo')
+            this.props.updateChat(this.props.chat)
           }
         } />
         {this.props.messages ? this.renderChatHTML() : this.renderNoChats()}

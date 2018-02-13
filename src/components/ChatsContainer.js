@@ -17,7 +17,9 @@ class ChatsContainer extends React.Component {
 
         <div className="activeChatContainer">
 
-          <ActiveChat user={this.props.user} chat={this.state.activeChat} messages={this.state.activeChatMessages}  handleNewMessageSubmit={this.handleNewMessageSubmit} handleCloseChat={this.handleCloseChat}/>
+          <ActiveChat user={this.props.user} chat={this.state.activeChat} messages={this.state.activeChatMessages}  handleNewMessageSubmit={this.handleNewMessageSubmit} handleCloseChat={this.handleCloseChat}
+          updateChat={this.updateActiveChat}
+            />
           </div>
 
         <ChatList chats={this.props.chats} user={this.props.user} onClick={this.updateActiveChat}  activeChatMessages={this.state.activeChatMessages} activeChatId={this.state.chatId} messageDraftListener={this.messageDraftListener} handleNewMessageSubmit={this.handleNewMessageSubmit} />
