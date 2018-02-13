@@ -4,6 +4,10 @@ import NewMessageForm from './NewMessageForm'
 class ActiveChat extends React.Component {
   constructor(props) {
     super(props)
+
+    this.state = {
+      toggleActiveStatus: false
+    }
   }
 
   renderNoChats = () => {
@@ -12,15 +16,18 @@ class ActiveChat extends React.Component {
     )
   }
 
+  closeChat = () => {
+
+    this.props.handleCloseChat(this.props.chat)
+  }
+
 
 
   renderChatHTML = () => {
 
     return(
       <div className="activeChatWindow">
-        <label>
-        <input type="submit" onClick={this.closeChat} />close
-        </label>
+
         {this.props.messages.map((m) => {
 
           return <div key={m.id}><b>{this.props.user.username}</b>: {m.content}</div>
@@ -30,10 +37,7 @@ class ActiveChat extends React.Component {
     )
   }
 
-  closeChat = () => {
 
-    this.props.handleCloseChat(this.props.chat)
-  }
 
   render() {
     return (

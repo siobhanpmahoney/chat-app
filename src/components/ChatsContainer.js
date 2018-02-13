@@ -7,8 +7,7 @@ class ChatsContainer extends React.Component {
     super(props)
     this.state = {
       activeChatMessages: null,
-      activeChat: null,
-      toggleActiveChat: false
+      activeChat: null
     }
   }
 
@@ -17,7 +16,7 @@ class ChatsContainer extends React.Component {
       <div className="chatsContainer">
 
         <div className="activeChatContainer">
-          <ActiveChat user={this.props.user} chat={this.state.activeChat} messages={this.state.activeChatMessages}  handleNewMessageSubmit={this.handleNewMessageSubmit} handleCloseChat={this.handleCloseChat} />
+          <ActiveChat user={this.props.user} chat={this.state.activeChat} messages={this.state.activeChatMessages}  handleNewMessageSubmit={this.handleNewMessageSubmit} handleCloseChat={this.handleCloseChat}/>
           </div>
 
         <ChatList chats={this.props.chats} user={this.props.user} onClick={this.updateActiveChat}  activeChatMessages={this.state.activeChatMessages} activeChatId={this.state.chatId} messageDraftListener={this.messageDraftListener} handleNewMessageSubmit={this.handleNewMessageSubmit} />
@@ -81,13 +80,16 @@ class ChatsContainer extends React.Component {
     })
   }
 
-  toggleActiveChat = (chat) = {
-    let status = !this.state.toggleActiveChat
-    this.setState({
-      toggleActiveChat: status
-    }),
-  }
+  handleCloseChat = (chat) => {
+    let setChatToNull = this.state.ActiveChat
+    setChatToNull = null
+    if (this.state.activeChat.id == chat.id) {
+      this.setState({
+        activeChat: setChatToNull
+      })
+    }
 
+  }
 
 
 }
