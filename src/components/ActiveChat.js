@@ -10,17 +10,17 @@ class ActiveChat extends React.Component {
     }
   }
 
+  closeChat = (event) => {
+    event.preventDefault()
+
+    this.props.handleCloseChat(this.chat), this.renderNoChats
+  }
+
   renderNoChats = () => {
+
     return(
       <div><h1>No current chat selected</h1></div>
     )
-  }
-
-  closeChat = () => {
-    let toggle = !this.state.toggleActiveStatus
-    this.setState({
-      toggleActiveStatus: toggle
-    })
   }
 
 
@@ -28,13 +28,16 @@ class ActiveChat extends React.Component {
   renderChatHTML = () => {
 
     return(
-      <div className="activeChatWindow">
+      <div onClick={this.closeChat}>
+        <div className="activeChatWindow">
+
 
         {this.props.messages.map((m) => {
 
           return <div key={m.id}><b>{this.props.user.username}</b>: {m.content}</div>
         })}
           <NewMessageForm chat={this.props.chat} messageDraftListener={this.props.messageDraftListener} handleNewMessageSubmit={this.props.handleNewMessageSubmit} activeChatId={this.props.activeChatId}/>
+          </div>
       </div>
     )
   }
@@ -42,6 +45,9 @@ class ActiveChat extends React.Component {
 
 
   render() {
+    console.log(this.props.messages)
+    let messages = this.props.messages
+    debugger
     return (
       <div>
         {this.props.messages ? this.renderChatHTML() : this.renderNoChats()}
