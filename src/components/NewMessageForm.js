@@ -31,7 +31,7 @@ class NewMessageForm extends React.Component {
   render(){
 
     return(
-      <div>
+      <div className="openChatForm">
         <input type="text" onChange={this.messageDraftListener}/>
         <button onClick={this.messageSend}>Send</button>
       </div>
