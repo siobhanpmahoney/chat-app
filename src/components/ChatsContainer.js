@@ -16,6 +16,7 @@ class ChatsContainer extends React.Component {
       <div className="chatsContainer">
 
         <div className="activeChatContainer">
+
           <ActiveChat user={this.props.user} chat={this.state.activeChat} messages={this.state.activeChatMessages}  handleNewMessageSubmit={this.handleNewMessageSubmit} handleCloseChat={this.handleCloseChat}/>
           </div>
 
@@ -37,10 +38,11 @@ class ChatsContainer extends React.Component {
         activeChat: chat
       })
     })
+
   }
 
   handleChatClose = () => {
-    
+    console.log(updateActiveChat(null))
   }
 
 

@@ -17,8 +17,10 @@ class ActiveChat extends React.Component {
   }
 
   closeChat = () => {
-
-    this.props.handleCloseChat(this.props.chat)
+    let toggle = !this.state.toggleActiveStatus
+    this.setState({
+      toggleActiveStatus: toggle
+    })
   }
 
 
