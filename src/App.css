@@ -7,12 +7,7 @@
   height: 80px;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
+
 
 .App-title {
   font-size: 1.5em;
@@ -22,68 +17,68 @@
   font-size: large;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.userPage {
+  display: grid;
+    grid-gap: 15px;
+        grid-template-columns: 120px auto 100px;
+
+        background-color: #fff;
+        color: #444;
 }
 
-.friendList {
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Nunito Sans"
+}
+
+.friendContainer {
   display:flex;
   flex-direction: column;
-  width: 15%;
+  width: 20%;
   float: left;
+  margin: 0.25em;
+  padding: 0.25em;
 }
 
 .chatsContainer {
+}
+
+.activeChatContainer {
+  display: flex;
+  align: center;
+  width: 40%;
+  padding: 12px;
+}
+
+.activeChatWindow {
+  border-radius: 3px;
+  display: flex;
+  align-items: left;
+  justify-content: left;
+  flex-direction: column;
+  max-height: 180px;
+  margin: 0.5rem;
+  position: align;
+  width: 400px;
+  box-shadow: 0 14px 14px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  padding: 0.5em;
+  overflow: scroll;
+  font-family: "Source Sans Pro";
+  font-size: 14px;
 
 }
 
 .chatList {
+  border: groove;
   display:flex;
-    flex-direction: column;
-    width: 20%;
-    float: right;
-}
-
-.chatListItem {
-  font-size: 12px;
-  font-family: "droid sans";
-  border: groove;
-  background-color: white;
-  max-height: 175px;
-  margin: 0.25em;
-  padding: 0.25em;
-  overflow-y: auto;
-}
-
-.openChatContainer {
-  border: groove;
-display:flex;
-flex-direction: column;
-width: 30%;
-float: left;
-background-color: white;
-margin: 0.5em;
-padding: 0.25em;
-
-}
-
-.openChatWindow {
   flex-direction: column;
-  font-size: 13px;
-  font-family: "droid sans";
-  border: groove;
+  width: 25%;
+  float: right;
   background-color: white;
-  max-height: 200px;
-  margin: 0.5em;
-  padding: 0.25em;
-  overflow-y: auto;
+  height: 75px;
+  margin: 12px;
+  padding: 12px;
 }
 
-.openChatWindowHistory {
-
-}
-
-.openChatWindowForm {
+.chat {
 
 }

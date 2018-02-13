@@ -5,6 +5,10 @@ import { ActionCable } from 'react-actioncable-provider'
 class ActiveChat extends React.Component {
   constructor(props) {
     super(props)
+
+    this.state = {
+      toggleActiveStatus: false
+    }
   }
 
   renderNoChats = () => {
@@ -13,17 +17,27 @@ class ActiveChat extends React.Component {
     )
   }
 
+  closeChat = () => {
+
+    this.props.handleCloseChat(this.props.chat)
+  }
+
+
+
   renderChatHTML = () => {
     return(
-      <div>
+      <div className="activeChatWindow">
+
         {this.props.messages.map((m) => {
 
-          return <div key={m.id} >{this.props.user.username}: {m.content}</div>
+          return <div key={m.id}><b>{this.props.user.username}</b>: {m.content}</div>
         })}
           <NewMessageForm chat={this.props.chat} messageDraftListener={this.props.messageDraftListener} handleNewMessageSubmit={this.props.handleNewMessageSubmit} activeChatId={this.props.activeChatId}/>
       </div>
     )
   }
+
+
 
   render() {
     debugger
