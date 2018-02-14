@@ -23,7 +23,7 @@
 .userPage {
   display: grid;
   grid-gap: 15px;
-  grid-template-columns: 25% 100% 25%;
+  grid-template-columns: 25% 75%;
   grid-template-areas:
     "header  header  header"
     "sidebar content content"
