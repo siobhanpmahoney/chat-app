@@ -2,6 +2,7 @@ import React from "react";
 import ChatList from './ChatList'
 import ActiveChatContainer from './ActiveChatContainer'
 
+
 class ChatsContainer extends React.Component {
   constructor(props){
     super(props)
@@ -90,7 +91,7 @@ handleNewMessageSubmit = (event, chat, message) => {
     return (
       <div className="chatsContainer">
         <div>
-          <ActiveChatContainer user={this.props.user} chat={this.state.activeChat} messages={this.state.activeChatMessages}  handleNewMessageSubmit={this.handleNewMessageSubmit} handleCloseChat={this.handleCloseChat}/>
+          <ActiveChatContainer user={this.props.user} chat={this.state.activeChat} messages={this.state.activeChatMessages}  handleNewMessageSubmit={this.handleNewMessageSubmit} updateChat={this.updateActiveChat} handleCloseChat={this.handleCloseChat}/>
           </div>
 
           <ChatList chats={this.props.chats} user={this.props.user} onClick={this.updateActiveChat}  activeChatMessages={this.state.activeChatMessages} activeChatId={this.state.chatId} messageDraftListener={this.messageDraftListener} handleNewMessageSubmit={this.handleNewMessageSubmit} />

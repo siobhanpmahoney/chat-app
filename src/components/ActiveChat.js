@@ -37,6 +37,7 @@ class ActiveChat extends React.Component {
 
 
   render() {
+
     let display = null
     if (this.props.messages.length < 1) {
       display = <h3 className="nothing-to-display">Nothing to display</h3>
