@@ -25,7 +25,7 @@ fetchActiveChatInfo = (chat) => {
   fetch(`http://localhost:3000/api/v1/chats/${chat.id}`)
   .then(response => response.json())
   .then(json => {
-    debugger
+
     this.setState({
       activeChatMessages: json.messages,
       activeChat: chat
@@ -66,7 +66,7 @@ handleNewMessageSubmit = (event, chat, message) => {
 
   addResponseToState = (json) => {
     let currentMessageState = this.state.activeChatMessages.slice()
-    debugger
+
     this.setState({
       activeChatMessages: [...currentMessageState, json[json.length-1]]
     })

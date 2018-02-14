@@ -37,18 +37,26 @@ class ActiveChat extends React.Component {
 
 
   render() {
+    let display = null
+    if (this.props.messages.length < 1) {
+      display = <h3 className="nothing-to-display">Nothing to display</h3>
+    } else {
+      display = (<div className="activeChatWindowContainer"><span className="topBar"><button onClick={this.closeChat}>close</button></span>
+        <div className="messageHistory">
+          {this.props.messages.map((m) => {
+            return <div key={m.id}><b>{m.username}</b>: {m.content}</div>
+          })}
+        </div>
+        <div className="newMessageForm">
+          <input type="text" onChange={this.messageDraftListener}/>
+          <button onClick={this.messageSend}>Send</button>
+        </div>
+      </div>)
+    }
+
         return (
-          <div className="activeChatWindowContainer">
-            <span className="topBar"><button onClick={this.closeChat}>close</button></span>
-            <div className="messageHistory">
-              {this.props.messages.map((m) => {
-                return <div key={m.id}><b>{m.username}</b>: {m.content}</div>
-              })}
-            </div>
-            <div className="newMessageForm">
-              <input type="text" onChange={this.messageDraftListener}/>
-              <button onClick={this.messageSend}>Send</button>
-            </div>
+          <div>
+            {display}
           </div>
         )
     }
