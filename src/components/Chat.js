@@ -2,7 +2,6 @@ import React from 'react'
 import ActiveChat from './ActiveChat.js'
 
 const Chat = (props) => {
-  console.log(props)
   return (
 
     <div>
