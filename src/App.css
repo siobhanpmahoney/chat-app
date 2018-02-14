@@ -17,20 +17,86 @@
   font-size: large;
 }
 
-.userPage {
-  display: grid;
-    grid-gap: 15px;
-        grid-template-columns: 120px auto 100px;
 
+div.activeChatWindowContainer > div {
+  float: right;
+}
+/* 
+.userPage {
+        display: grid;
+    grid-gap: 15px;
+        grid-template-columns: 25% 100% 25%;
+        grid-template-areas:
+    "header  header  header"
+        "sidebar content content"
+        "footer  footer  footer";
         background-color: #fff;
         color: #444;
+    }
+
+.chatList {
+  border-radius: 1px;
+  display: flex;
+  align-items: right;
+  float:right;
+  flex-direction: column-reverse;
+  justify-content: right;
+  max-height: 100px;
+  min-height: 50px;
+  max-width: 100px;
+  margin: 0.25rem;
+  width: 150px;
+  padding: 0.5em;
+}
+
+.friendItem {
+  border: solid 1px;
+border-radius: 1px;
+display: flex;
+align-items: left;
+justify-content: left;
+flex-direction: column;
+max-height: 100px;
+min-height: 50px;
+max-width: 100px;
+margin: 0.25rem;
+position: align;
+width: 150px;
+padding: 0.5em;
+}
+
+.activeChatWindowContainer {
+  border-radius: 3px;
+  float: inherit;
+  display: flex;
+justify-content: right;
+flex-direction: column;
+height: 220px;
+margin: 0.25rem;
+position: align;
+width: 550px;
+flex-grow: right;
+box-shadow: 0 14px 14px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+padding: 0.25em;
+}
+
+.messageHistory {
+  border-radius: 3px;
+  display: flex;
+  justify-content: left;
+  flex-direction: column;
+  max-height: 220px;
+  margin: 0.25rem;
+  position: align;
+  width: inherit;
+  overflow: scroll;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "Nunito Sans"
-}
+} */
 
-.friendContainer {
+/* .friendContainer {
   display:flex;
   flex-direction: column;
   width: 20%;
@@ -42,23 +108,19 @@ h1, h2, h3, h4, h5, h6 {
 .chatsContainer {
 }
 
-.activeChatContainer {
+.activeChatWindowContainer {
   display: flex;
-  align: center;
-  width: 40%;
+  align: right;
   padding: 12px;
+  width: 480px;
+  min-height: 200px;
 }
 
-.activeChatWindow {
-  border-radius: 3px;
-  display: flex;
-  align-items: left;
-  justify-content: left;
-  flex-direction: column;
-  max-height: 180px;
-  margin: 0.5rem;
-  position: align;
-  width: 400px;
+.messageHistory {
+
+  min-margin: 0.5rem;
+
+  width: 200px;
   box-shadow: 0 14px 14px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
   padding: 0.5em;
   overflow: scroll;
@@ -81,4 +143,4 @@ h1, h2, h3, h4, h5, h6 {
 
 .chat {
 
-}
+} */
