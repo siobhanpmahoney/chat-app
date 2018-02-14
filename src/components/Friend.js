@@ -9,7 +9,7 @@ class Friend extends React.Component {
   render() {
     return(
       <div>
-        <h4><span>{this.props.friend.username}</span></h4>
+        <h4><span className="friendItem"> {this.props.friend.username}</span></h4>
       </div>
     )
   }

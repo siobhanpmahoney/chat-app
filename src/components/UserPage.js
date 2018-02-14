@@ -16,8 +16,11 @@ class UserPage extends React.Component {
 
     return (
       <div className="userPage">
-        <FriendsContainer user={this.props.user} chats={this.props.chats} friends={this.props.friends}/>
-        <ChatsContainer user={this.props.user} chats={this.props.chats} friends={this.props.friends} addResponseToState={this.props.addResponseToState} />
+        {this.props.friends.length > 0 &&
+          <FriendsContainer user={this.props.user} chats={this.props.chats} friends={this.props.friends}/>
+        }
+        {this.props.chats.length > 0 &&
+        <ChatsContainer user={this.props.user} chats={this.props.chats} friends={this.props.friends} addResponseToState={this.props.addResponseToState} />}
       </div>
     )
   }
