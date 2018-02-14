@@ -45,7 +45,7 @@ class ActiveChat extends React.Component {
       display = (<div className="activeChatWindowContainer"><span className="topBar"><button onClick={this.closeChat}>close</button></span>
         <div className="messageHistory">
           {this.props.messages.map((m) => {
-            return <div key={m.id}><b>{m.username}</b>: {m.content}</div>
+            return <div key={m.id} className="messageDisplay"><b>{m.username}</b>: {m.content}</div>
           })}
         </div>
         <div className="newMessageForm">
